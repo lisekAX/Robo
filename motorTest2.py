@@ -62,7 +62,7 @@ try:
         elif keyp == ' ':
             pi2go.stop()
             print 'Stop'
-        elif keyp == 'd'
+        elif keyp == 'd':
             print pi2go.getDistance()
         elif ord(keyp) == 3:
             break
