@@ -49,7 +49,7 @@ try:
     while True:
         keyp = readkey()
         if keyp == 'w' or ord(keyp) == 16:
-            pi2go.forward(speed)
+            pi2go.go(speed * 0.0999, speed)
             print 'Forward', speed
         elif keyp == 'z' or ord(keyp) == 17:
             pi2go.reverse(speed)
