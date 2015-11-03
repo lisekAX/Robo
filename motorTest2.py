@@ -1,3 +1,4 @@
+# Test for movement in stright line
 # Pi2Go Motor Test
 # Moves: Forward, Reverse, turn Right, turn Left, Stop - then repeat
 # Press Ctrl-C to stop
