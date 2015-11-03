@@ -1,12 +1,4 @@
 # Test for movement in stright line
-# Pi2Go Motor Test
-# Moves: Forward, Reverse, turn Right, turn Left, Stop - then repeat
-# Press Ctrl-C to stop
-#
-# Also demonstrates writing to the LEDs
-#
-# To check wiring is correct ensure the order of movement as above is correct
-# Run using: sudo python motorTest.py
 
 
 import pi2go, time
@@ -70,6 +62,8 @@ try:
         elif keyp == ' ':
             pi2go.stop()
             print 'Stop'
+        elif keyp == 'd'
+            print pi2go.getDistance()
         elif ord(keyp) == 3:
             break
 
