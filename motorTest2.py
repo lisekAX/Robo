@@ -36,7 +36,7 @@ def readkey(getchar_fn=None):
 
 #read distance in thread
 def read_distance():
-    global running = true
+    global running = True
     while running:
         print pi2go.getDistance()
         if pi2go.getDistance() <= 10:
