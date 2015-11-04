@@ -40,7 +40,7 @@ def read_distance():
         print pi2go.getDistance()
         if pi2go.getDistance() <= 10:
             pi2go.stop()
-        sleep(1)
+        time.sleep(1)
 
 speed = 30
 
