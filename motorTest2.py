@@ -35,6 +35,7 @@ def readkey(getchar_fn=None):
 # End of single character reading
 
 #read distance in thread
+running = True
 def read_distance():
     global running
     while running:
