@@ -35,7 +35,7 @@ def readkey(getchar_fn=None):
 # End of single character reading
 
 #read distance in thread
-def read_distance(pi2goArg)
+def read_distance(pi2goArg):
     while True:
         print pi2go.getDistance()
         if pi2go.getDistance() <= 10:
