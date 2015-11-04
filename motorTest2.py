@@ -35,7 +35,7 @@ def readkey(getchar_fn=None):
 # End of single character reading
 
 #read distance in thread
-def read_distance(pi2goArg):
+def read_distance():
     while True:
         print pi2go.getDistance()
         if pi2go.getDistance() <= 10:
@@ -48,7 +48,7 @@ pi2go.init()
 
 # main loop
 try:
-    thread = Thread(target = read_distance, args = (pi2go))
+    thread = threading.Thread(target = read_distance)
     thread.start()
     while True:
         keyp = readkey()
