@@ -7,6 +7,7 @@ import pi2go, time
 import sys
 import tty
 import termios
+import threading
 
 def readchar():
     fd = sys.stdin.fileno()
@@ -33,12 +34,22 @@ def readkey(getchar_fn=None):
 
 # End of single character reading
 
+#read distance in thread
+def read_distance(pi2goArg)
+    while True:
+        print pi2go.getDistance()
+        if pi2go.getDistance() <= 10:
+            pi2go.stop()
+        sleep(1)
+
 speed = 30
 
 pi2go.init()
 
 # main loop
 try:
+    thread = Thread(target = read_distance, args = (pi2go))
+    thread.start()
     while True:
         keyp = readkey()
         if keyp == 'w' or ord(keyp) == 16:
