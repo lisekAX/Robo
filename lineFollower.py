@@ -10,16 +10,16 @@ import termios
 import threading
 
 # main loop
-speed = 100
+speed = 10
 pi2go.init()
+pi2go.go(speed * 0.94, speed)
 
-while True:
-    print pi2go.getDistance()
-    if pi2go.getDistance() <= 30:
-        pi2go.reverse(speed);
-        time.sleep(3)
-        pi2go.stop()
-    time.sleep(0.25)   
-
-pi2go.cleanup()
+try:
+    while True:
+        if (pi2go.irLeftLine()):
+            print "Left"
+        elif (pi2go.irRightLine()):
+            print "Right"
+finally:
+    pi2go.cleanup()
     
