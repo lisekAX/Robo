@@ -13,7 +13,7 @@ import threading
 speed = 100
 pi2go.init()
 
-while true:
+while True:
     print pi2go.getDistance()
     if pi2go.getDistance() <= 10:
         pi2go.reverse(speed);
