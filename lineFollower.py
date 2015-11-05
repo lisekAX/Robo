@@ -10,16 +10,20 @@ import termios
 import threading
 
 # main loop
-speed = 10
+speed = 30
 pi2go.init()
-pi2go.go(speed * 0.94, speed)
 
 try:
     while True:
-        if (pi2go.irLeftLine()):
-            print "Left"
-        elif (pi2go.irRightLine()):
-            print "Right"
+        if (pi2go.irLeftLine() == True and pi2go.irRightLine() == True)
+            pi2go.go(speed * 0.94, speed)
+        elif (pi2go.irLeftLine() == False):
+            pi2go.spinLeft(speed)
+        elif (pi2go.irRightLine() == False):
+            pi2go.spinRight(speed)
+        elif (pi2go.irLeftLine() == False and pi2go.irRightLine() == False)
+            pi2go.stop()
+            
 finally:
     pi2go.cleanup()
     
