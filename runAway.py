@@ -15,7 +15,7 @@ pi2go.init()
 
 while True:
     print pi2go.getDistance()
-    if pi2go.getDistance() <= 10:
+    if pi2go.getDistance() <= 30:
         pi2go.reverse(speed);
         time.sleep(3)
         pi2go.stop()
