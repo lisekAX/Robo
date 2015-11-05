@@ -10,7 +10,7 @@ import termios
 import threading
 
 # main loop
-speed = 30
+speed = 10
 pi2go.init()
 
 try:
@@ -18,7 +18,7 @@ try:
         if (pi2go.irLeftLine() == False):
             pi2go.go(speed * 0.94, speed)
         elif (pi2go.irLeftLine() == True):
-            pi2go.spinRight(speed)   
+            pi2go.spinleft(speed)   
         #if (pi2go.irLeftLine() == True and pi2go.irRightLine() == True):
         #    pi2go.go(speed * 0.94, speed)
         #elif (pi2go.irLeftLine() == False):
