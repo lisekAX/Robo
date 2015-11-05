@@ -9,30 +9,7 @@ import tty
 import termios
 import threading
 
-def readchar():
-    fd = sys.stdin.fileno()
-    old_settings = termios.tcgetattr(fd)
-    try:
-        tty.setraw(sys.stdin.fileno())
-        ch = sys.stdin.read(1)
-    finally:
-        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-    if ch == '0x03':
-        raise KeyboardInterrupt
-    return ch
 
-def readkey(getchar_fn=None):
-    getchar = getchar_fn or readchar
-    c1 = getchar()
-    if ord(c1) != 0x1b:
-        return c1
-    c2 = getchar()
-    if ord(c2) != 0x5b:
-        return c1
-    c3 = getchar()
-    return chr(0x10 + ord(c3) - 65)  # 16=Up, 17=Down, 18=Right, 19=Left arrows
-
-# End of single character reading
 
 #read distance in thread
 running = True
@@ -41,47 +18,21 @@ def read_distance():
     while running:
         print pi2go.getDistance()
         if pi2go.getDistance() <= 10:
+            pi2go.reverse(speed);
+            time.sleep(3)
             pi2go.stop()
         time.sleep(0.25)
 
-speed = 30
 
-pi2go.init()
+
+
 
 # main loop
-try:
-    thread = threading.Thread(target = read_distance)
-    thread.start()
-    while True:
-        keyp = readkey()
-        if keyp == 'w' or ord(keyp) == 16:
-            pi2go.go(speed * 0.94, speed)
-            print 'Forward', speed
-        elif keyp == 'z' or ord(keyp) == 17:
-            pi2go.reverse(speed)
-            print 'Reverse', speed
-        elif keyp == 's' or ord(keyp) == 18:
-            pi2go.spinRight(speed)
-            print 'Spin Right', speed
-        elif keyp == 'a' or ord(keyp) == 19:
-            pi2go.spinLeft(speed)
-            print 'Spin Left', speed
-        elif keyp == '.' or keyp == '>':
-            speed = min(100, speed+10)
-            print 'Speed+', speed
-        elif keyp == ',' or keyp == '<':
-            speed = max (0, speed-10)
-            print 'Speed-', speed
-        elif keyp == ' ':
-            pi2go.stop()
-            print 'Stop'
-        elif keyp == 'd':
-            print pi2go.getDistance()
-        elif ord(keyp) == 3:
-            break
-
-except KeyboardInterrupt:
-    pass
+speed = 100
+pi2go.init()
+thread = threading.Thread(target = read_distance)
+thread.start()
+    
 
 finally:
     running = False
