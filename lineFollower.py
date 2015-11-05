@@ -17,7 +17,7 @@ try:
     while True:
         if (pi2go.irLeftLine() == False):
             pi2go.go(speed * 0.94, speed)
-        elif (pi2go.irLeftLine() == False):
+        elif (pi2go.irLeftLine() == True):
             pi2go.spinLeft(speed)   
         #if (pi2go.irLeftLine() == True and pi2go.irRightLine() == True):
         #    pi2go.go(speed * 0.94, speed)
