@@ -10,7 +10,7 @@ import termios
 import threading
 
 # main loop
-speed = 10
+speed = 30
 pi2go.init()
 
 try:
